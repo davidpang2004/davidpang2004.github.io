@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Pang, P.E., Ph.D. — Engineering Portfolio</title>
+  <meta name="description" content="35+ years of cross-disciplinary engineering experience spanning offshore structures, deep-water pipelines, highway research, and transit infrastructure." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #111; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; border-bottom: 0.5px solid #e5e5e5; position: sticky; top: 0; background: #fff; z-index: 100; }
+    .nav-name { font-size: 15px; font-weight: 500; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { font-size: 13px; color: #666; cursor: pointer; }
+    .nav-links a:hover { color: #111; }
+
+    .site { max-width: 900px; margin: 0 auto; padding: 0 2rem 4rem; }
+
+    .hero { padding: 5rem 0 4rem; position: relative; overflow: hidden; }
+    .hero-tag { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #0F6E56; background: #E1F5EE; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 1.5rem; }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 500; line-height: 1.15; margin-bottom: 1rem; }
+    .hero h1 em { color: #1D9E75; font-style: normal; }
+    .hero-sub { font-size: 1.1rem; color: #555; max-width: 560px; line-height: 1.7; margin-bottom: 2rem; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: #1D9E75; color: #fff; border: none; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; }
+    .btn-secondary { background: transparent; color: #111; border: 1px solid #ccc; padding: 10px 22px; border-radius: 8px; font-size: 14px; cursor: pointer; }
+    .hero-bg-shape { position: absolute; right: -80px; top: 40px; width: 380px; height: 380px; border-radius: 50%; background: rgba(29,158,117,0.06); pointer-events: none; }
+    .hero-bg-shape2 { position: absolute; right: 80px; top: 100px; width: 200px; height: 200px; border-radius: 50%; background: rgba(29,158,117,0.05); pointer-events: none; }
+
+    .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #e5e5e5; border: 0.5px solid #e5e5e5; border-radius: 12px; overflow: hidden; margin-bottom: 4rem; }
+    .stat { background: #fff; padding: 1.25rem 1rem; text-align: center; }
+    .stat-num { font-size: 1.8rem; font-weight: 500; color: #1D9E75; display: block; }
+    .stat-label { font-size: 12px; color: #888; margin-top: 2px; }
+
+    .section { margin-bottom: 4rem; }
+    .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; margin-bottom: 0.5rem; }
+    .section-title { font-size: 1.6rem; font-weight: 500; margin-bottom: 2rem; }
+
+    .disc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .disc-card { border: 0.5px solid #e5e5e5; border-radius: 12px; padding: 1.25rem; position: relative; overflow: hidden; background: #fff; }
+    .disc-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; }
+    .disc-card.civil::before { background: #1D9E75; }
+    .disc-card.offshore::before { background: #378ADD; }
+    .disc-card.pipeline::before { background: #BA7517; }
+    .disc-card.structural::before { background: #993C1D; }
+    .disc-card.qc::before { background: #534AB7; }
+    .disc-card.rd::before { background: #993556; }
+    .disc-icon { font-size: 22px; margin-bottom: 8px; }
+    .disc-name { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+    .disc-desc { font-size: 12px; color: #666; line-height: 1.5; }
+
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1.5px; background: #e5e5e5; }
+    .tl-item { position: relative; margin-bottom: 2.5rem; }
+    .tl-dot { position: absolute; left: -2.35rem; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: #1D9E75; border: 2px solid #fff; box-shadow: 0 0 0 1.5px #1D9E75; }
+    .tl-dot.blue { background: #378ADD; box-shadow: 0 0 0 1.5px #378ADD; }
+    .tl-dot.amber { background: #EF9F27; box-shadow: 0 0 0 1.5px #EF9F27; }
+    .tl-dot.coral { background: #D85A30; box-shadow: 0 0 0 1.5px #D85A30; }
+    .tl-date { font-size: 11px; color: #aaa; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 3px; }
+    .tl-role { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+    .tl-company { font-size: 13px; color: #1D9E75; margin-bottom: 8px; }
+    .tl-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag { font-size: 11px; padding: 2px 8px; border-radius: 20px; background: #f5f5f5; color: #666; border: 0.5px solid #e5e5e5; }
+
+    .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .cert { border: 0.5px solid #e5e5e5; border-radius: 8px; padding: 0.875rem 1rem; background: #fff; display: flex; gap: 10px; align-items: flex-start; }
+    .cert-icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+    .cert-icon.g { background: #E1F5EE; }
+    .cert-icon.b { background: #E6F1FB; }
+    .cert-name { font-size: 12px; font-weight: 500; line-height: 1.4; }
+    .cert-id { font-size: 11px; color: #aaa; margin-top: 1px; }
+
+    .pub-list { display: flex; flex-direction: column; gap: 12px; }
+    .pub-item { border-left: 2.5px solid #e5e5e5; padding-left: 1rem; transition: border-color 0.2s; }
+    .pub-item:hover { border-left-color: #1D9E75; }
+    .pub-title { font-size: 13px; font-weight: 500; line-height: 1.5; }
+    .pub-meta { font-size: 12px; color: #888; margin-top: 3px; }
+
+    @media (max-width: 600px) {
+      .disc-grid { grid-template-columns: 1fr 1fr; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .cert-grid { grid-template-columns: 1fr; }
+      nav { padding: 1rem; }
+      .site { padding: 0 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">David Pang, P.E., Ph.D.</span>
+  <div class="nav-links">
+    <a onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})">Experience</a>
+    <a onclick="document.getElementById('disciplines').scrollIntoView({behavior:'smooth'})">Disciplines</a>
+  </div>
+</nav>
+
+<div class="site">
+
+  <div class="hero">
+    <div class="hero-bg-shape"></div>
+    <div class="hero-bg-shape2"></div>
+    <div class="hero-tag">P.E. · Ph.D. · Multi-discipline engineer</div>
+    <h1>Engineering across<br>disciplines, <em>frontiers,</em><br>and continents.</h1>
+    <p class="hero-sub">35+ years spanning offshore structures, deep-water pipelines, highway research, and transit infrastructure — from Houston to China, from seabed to cityscape.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})">View experience</button>
+      <button class="btn-secondary" onclick="document.getElementById('disciplines').scrollIntoView({behavior:'smooth'})">Disciplines</button>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-num">35+</span><span class="stat-label">Years of engineering</span></div>
+    <div class="stat"><span class="stat-num">6</span><span class="stat-label">Engineering domains</span></div>
+    <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Years on API SC2</span></div>
+    <div class="stat"><span class="stat-num">8300ft</span><span class="stat-label">Max water depth managed</span></div>
+  </div>
+
+  <div class="section" id="disciplines">
+    <div class="section-label">What I bring</div>
+    <div class="section-title">A rare cross-disciplinary range</div>
+    <div class="disc-grid">
+      <div class="disc-card civil">
+        <div class="disc-icon">🏗️</div>
+        <div class="disc-name">Civil & structural engineering</div>
+        <div class="disc-desc">Ph.D. in reinforced concrete structures; P.E. licensure; drillship structural design at 10,000 ft water depth.</div>
+      </div>
+      <div class="disc-card offshore">
+        <div class="disc-icon">🛢️</div>
+        <div class="disc-name">Offshore & deepwater</div>
+        <div class="disc-desc">FPSO design/construction, world-first drillship, API SC2 committee member for 10+ years.</div>
+      </div>
+      <div class="disc-card pipeline">
+        <div class="disc-icon">⚙️</div>
+        <div class="disc-name">Pipeline & flowline</div>
+        <div class="disc-desc">BHP Trion at 8,300 ft depth; authored Chevron pipeline engineering spec; high-temperature pipeline innovation.</div>
+      </div>
+      <div class="disc-card structural">
+        <div class="disc-icon">🏭</div>
+        <div class="disc-name">Facility & equipment design</div>
+        <div class="disc-desc">Multi-discipline facility design, drilling equipment, aluminum living quarters, turbine modules.</div>
+      </div>
+      <div class="disc-card qc">
+        <div class="disc-icon">🔍</div>
+        <div class="disc-name">QC, audit & compliance</div>
+        <div class="disc-desc">Certification worldwide, pipeline integrity audits, MBTA infrastructure inspection management.</div>
+      </div>
+      <div class="disc-card rd">
+        <div class="disc-icon">📊</div>
+        <div class="disc-name">Research & tools development</div>
+        <div class="disc-desc">SHRP federal highway program, Access/Excel/VBA management tools, risk management databases.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="experience">
+    <div class="section-label">Career</div>
+    <div class="section-title">Experience timeline</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2020 – Present</div>
+        <div class="tl-role">Manager of Infrastructure Engineering Quality</div>
+        <div class="tl-company">MBTA — Boston, MA</div>
+        <div class="tl-tags"><span class="tag">Transit infrastructure</span><span class="tag">Audit</span><span class="tag">VBA/Access tools</span><span class="tag">SOPs</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot amber"></div>
+        <div class="tl-date">2019 – 2020</div>
+        <div class="tl-role">Trion Project Flowline Lead</div>
+        <div class="tl-company">Doris — Houston, TX</div>
+        <div class="tl-tags"><span class="tag">BHP Trion</span><span class="tag">8,300 ft water depth</span><span class="tag">Flowline design</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot blue"></div>
+        <div class="tl-date">2017 – 2018</div>
+        <div class="tl-role">Chief Structural Engineer</div>
+        <div class="tl-company">China Merchants Heavy Industry — China</div>
+        <div class="tl-tags"><span class="tag">Drillship</span><span class="tag">Aluminum LQ</span><span class="tag">Multi-discipline</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2012 – 2017</div>
+        <div class="tl-role">Sr. Pipeline Engineer</div>
+        <div class="tl-company">Chevron — Houston, TX</div>
+        <div class="tl-tags"><span class="tag">Offshore pipelines</span><span class="tag">Specification authorship</span><span class="tag">Subsea integrity</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot amber"></div>
+        <div class="tl-date">2011 – 2012</div>
+        <div class="tl-role">Sr. Project Manager</div>
+        <div class="tl-company">Foster Wheeler — Houston, TX</div>
+        <div class="tl-tags"><span class="tag">Facility & pipeline</span><span class="tag">Risk management</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot coral"></div>
+        <div class="tl-date">2007 – 2011</div>
+        <div class="tl-role">Pipeline/Flowline Team Lead</div>
+        <div class="tl-company">Doris — Houston, TX</div>
+        <div class="tl-tags"><span class="tag">World-first FDPSO</span><span class="tag">Gas processing</span><span class="tag">Compressor station</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot blue"></div>
+        <div class="tl-date">2004 – 2007</div>
+        <div class="tl-role">Sr. Project Manager / Design Review Manager</div>
+        <div class="tl-company">Bureau Veritas — Houston, TX</div>
+        <div class="tl-tags"><span class="tag">Global certification</span><span class="tag">Pemex-Gas audit</span><span class="tag">Multi-international</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">1998 – 2001</div>
+        <div class="tl-role">Design Review Manager</div>
+        <div class="tl-company">Bureau Veritas — Houston, TX</div>
+        <div class="tl-tags"><span class="tag">Structure/equipment review</span><span class="tag">Worldwide certification</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot amber"></div>
+        <div class="tl-date">1995 – 1998</div>
+        <div class="tl-role">Lead Structural Engineer</div>
+        <div class="tl-company">JP Kenny — Houston, TX</div>
+        <div class="tl-tags"><span class="tag">10,000 ft drillship</span><span class="tag">Turbine modules</span><span class="tag">Pipeline station</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot coral"></div>
+        <div class="tl-date">1989 – 1992</div>
+        <div class="tl-role">Lab Engineer / Principal Investigator</div>
+        <div class="tl-company">Southwestern Lab — Houston, TX</div>
+        <div class="tl-tags"><span class="tag">FHWA SHRP program</span><span class="tag">Pavement QC</span><span class="tag">Materials testing</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Credentials</div>
+    <div class="section-title">Certifications & education</div>
+    <div class="cert-grid">
+      <div class="cert"><div class="cert-icon g">🎓</div><div><div class="cert-name">Ph.D. — Reinforced Concrete Structures</div><div class="cert-id">University of Houston, 1991</div></div></div>
+      <div class="cert"><div class="cert-icon b">📋</div><div><div class="cert-name">Professional Engineer (Civil) — Texas</div><div class="cert-id">License #81531</div></div></div>
+      <div class="cert"><div class="cert-icon g">🔧</div><div><div class="cert-name">CE Pressure Equipment Inspector</div><div class="cert-id">Certificate #PED-A/164</div></div></div>
+      <div class="cert"><div class="cert-icon b">🛡️</div><div><div class="cert-name">Safety Management Systems</div><div class="cert-id">ID #IADB1181938</div></div></div>
+      <div class="cert"><div class="cert-icon g">🏫</div><div><div class="cert-name">M.S. — Pre-stressed Concrete Structures</div><div class="cert-id">China Academy of Building Research, 1985</div></div></div>
+      <div class="cert"><div class="cert-icon b">🏛️</div><div><div class="cert-name">B.S. — Civil Engineering</div><div class="cert-id">Chongqing University, 1982</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Research</div>
+    <div class="section-title">Selected publications</div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-title">Pipe-In-Pipe Pipeline Design and Construction</div>
+        <div class="pub-meta">D. Pang & A. Crtsinels · Chevron Engineering Specification, 2013</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">Risk Based Approach to Optimize Inspection and Maintenance Resources</div>
+        <div class="pub-meta">D. Pang, B. Guedes, R. Fales · 6th International Pipeline Conference, Calgary, 2006</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">Prescriptive and Risk-Based Approaches to Regulation: The Case of FPSOs in Deepwater Gulf of Mexico</div>
+        <div class="pub-meta">M. Lassagne, D. Pang, R. Vieira · OTC 12950, Offshore Technology Conference, Houston, 2001</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">Behavior of Reinforced Concrete Membrane Element in Shear</div>
+        <div class="pub-meta">Pang, X. & Hsu, T.T.C. · ACI Structural Journal, Vol. 92 No. 6, Nov–Dec 1995</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
